@@ -24,3 +24,8 @@ console.log(boolenIsLoggedIn)
 let someNumber = 33 
 let StringNumber = String(someNumber)
 console.log(typeof StringNumber);
+
+
+
+// ********************** Operations *************************//
+
