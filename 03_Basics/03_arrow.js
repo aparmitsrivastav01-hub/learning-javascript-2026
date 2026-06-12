@@ -46,4 +46,11 @@ const addTwo = (num1,num2) => {
     return num1+num2
 }
 
+
+const addTwoImplicit = (num1,num2) => (num1+num2)
+
+// {} === return explicit
+// () !=== return implicit
+
 console.log(addTwo(3,4))
+console.log(addTwoImplicit(3,4))
