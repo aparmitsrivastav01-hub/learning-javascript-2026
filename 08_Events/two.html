@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASYNC VS SYNC</title>
+</head>
+<body>
+    <h1>Chai Aur Code</h1>
+    <button id="stop">Stop</button>
+</body>
+    <script>
+        setTimeout(function(){
+            console.log("appy");
+        }, 5000)
+        // setInterval(function(){
+        //     console.log("dhaat tmkc");  
+        // },5000)
+        const sayAppy = function(){
+            console.log("aparmit");   
+        };
+        setTimeout(sayAppy,2000)
+
+        
+        setTimeout(function(){document.querySelector("h1").innerHTML = "best coder in india"},2000)
+    </script>
+</html>
