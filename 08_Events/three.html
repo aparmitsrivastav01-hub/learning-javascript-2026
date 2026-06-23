@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASYNC VS SYNC</title>
+  </head>
+  <body>
+    <h1>Chai Aur JS</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+
+  <!-- task h ki start par print chalu hojaye or stop par ruk jaye -->
+  <script>
+    document.querySelector("#start").addEventListener("click", function () {
+        const start = function(){
+            console.log("samay kharab chalra h bc ", Date.now());
+        }
+        const startingWala = setInterval(start,1000)
+        document.querySelector("#stop").addEventListener("click",function(){
+        clearInterval(startingWala)
+    })
+    })
+
+
+    
+  </script>
+</html>
