@@ -83,44 +83,37 @@
 
   <button id="extract-btn">Extract Data</button>
 
-  <body style="background-color: #212121">
-    
-  </body>
+  <body style="background-color: #212121"></body>
   <script>
-    
-    console.log(document.querySelector("#extract-btn")).addEventListener("click",showcard(e))
-    
+    document
+      .querySelector("#extract-btn")
+      .addEventListener("click", function (e) {
+        document.body.innerHTML = `<div class="card">
+    <img src="https://picsum.photos/300/180" alt="image">
 
-/// leaving at raat , card ban gya h show button wala system karna h bs
+    <div class="card-content">
+      <h2 id="name">Aparmit</h2>
+      <p>Total Followers: </p>
+      <a id= "button" class="btn"></a>
+    </div>
+  </div>`;
+        requestURL = "https://api.github.com/users/aparmitsrivastav01-hub";
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", requestURL);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            const dataset = JSON.parse(this.response);
+            if (dataset.name != "") {
+              document.getElementById("name").innerText = dataset.name;
+            }
+            if (dataset.followers != "") {
+              alert(dataset.followers)
+              document.getElementById("button").innerText = dataset.followers;
+            }
+          }
+        };
 
-
-
-    let url;
-    const requestURL = "https://api.github.com/users/aparmitsrivastav01-hub";
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", requestURL);
-    xhr.onreadystatechange = function () {
-      // console.log(xhr.readyState);
-      if (xhr.readyState === 4) {
-        const data = JSON.parse(this.responseText);
-
-        img_1 = data.avatar_url;
-        if (data.avatar_url != " ") {
-          const img = document.getElementById("photo");
-          img.src = data.avatar_url;
-        }
-        if (data.name != " ") {
-          const h2 = (document.querySelector("h2").innerText = data.name);
-        }
-
-        if (data.followers >= 0) {
-          const countapi = (document.getElementById("api_count").innerText =
-            data.followers);
-        }
-
-        // console.log(data.followers)
-      }
-    };
-    xhr.send();
+        xhr.send();
+      });
   </script>
 </html>
