@@ -89,7 +89,7 @@
       .querySelector("#extract-btn")
       .addEventListener("click", function (e) {
         document.body.innerHTML = `<div class="card">
-    <img src="https://picsum.photos/300/180" alt="image">
+    <img id="image"src="https://picsum.photos/300/180" >
 
     <div class="card-content">
       <h2 id="name">Aparmit</h2>
@@ -103,11 +103,11 @@
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4) {
             const dataset = JSON.parse(this.response);
+            document.getElementById("image").src = dataset.avatar_url
             if (dataset.name != "") {
               document.getElementById("name").innerText = dataset.name;
             }
-            if (dataset.followers != "") {
-              alert(dataset.followers)
+            if (dataset.followers>=0) {
               document.getElementById("button").innerText = dataset.followers;
             }
           }
