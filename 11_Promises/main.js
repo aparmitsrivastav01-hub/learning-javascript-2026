@@ -1,3 +1,8 @@
+// Promise kya hota hai?
+
+// Promise = "Main future me result dunga."
+
+
 const promiseOne = new Promise(function (resolve, reject) {
   // Do an Async task
   // DB calls, cryptography, network requests
